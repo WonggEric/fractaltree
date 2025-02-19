@@ -1,19 +1,40 @@
-private double fractionLength = .8; 
-private int smallestBranch = 10; 
-private double branchAngle = .2;  
-public void setup() 
-{   
-	size(640,480);    
-	noLoop(); 
-} 
-public void draw() 
-{   
-	background(0);   
-	stroke(0,255,0);   
-	line(320,480,320,380);   
-	//drawBranches(??,??,??,??);  //will add later 
-} 
-public void drawBranches(int x,int y, double branchLength, double angle) 
-{   
-	//your code here    
-} 
+float angle = PI /2;
+float branchAngle = PI/5;
+float fractionLength = 0.7;
+float smallestBranch = 16;
+int i = 500;
+int j = 900;
+
+void setup() {
+  size(1000, 1000);
+  background(0);
+  noLoop();
+}
+
+void draw() {
+  translate(i, j);
+  strokeWeight(5);
+  drawBranches(0, 0, 250, angle);
+}
+
+void drawBranches(float x, float y, float branchLength, float angle) {
+  float endX = x + branchLength * cos(angle);
+  float endY = y - branchLength * sin(angle);
+  stroke(102,67,13);
+  line(x, y, endX, endY);
+
+  if (smallestBranch>=branchLength) {
+    return;
+  } else {
+    float angle1 = angle + branchAngle;
+    float angle2 = angle - branchAngle;
+    float newBranchLength = branchLength * fractionLength;
+    drawBranches(endX, endY, newBranchLength, angle1);
+    drawBranches(endX, endY, newBranchLength, angle2);
+    fill(42,100,23,100);
+    stroke(42,100,23);
+    ellipse(endX,endY,37,37);
+  }
+}
+
+
