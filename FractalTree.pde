@@ -1,23 +1,23 @@
-float angle = PI /2;
-float branchAngle = PI/5;
-float fractionLength = 0.7;
-float smallestBranch = 16;
-int i = 500;
-int j = 900;
+private float angle = PI /2;
+private float branchAngle = PI/5;
+private float fractionLength = 0.7;
+private float smallestBranch = 16;
+private int i = 500;
+private int j = 900;
 
-void setup() {
+public void setup() {
   size(1000, 1000);
   background(0);
   noLoop();
 }
 
-void draw() {
+public void draw() {
   translate(i, j);
   strokeWeight(5);
   drawBranches(0, 0, 250, angle);
 }
 
-void drawBranches(float x, float y, float branchLength, float angle) {
+public void drawBranches(float x, float y, float branchLength, float angle) {
   float endX = x + branchLength * cos(angle);
   float endY = y - branchLength * sin(angle);
   stroke(102,67,13);
