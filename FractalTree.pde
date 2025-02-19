@@ -31,7 +31,7 @@ void drawBranches(float x, float y, float branchLength, float angle) {
     float newBranchLength = branchLength * fractionLength;
     drawBranches(endX, endY, newBranchLength, angle1);
     drawBranches(endX, endY, newBranchLength, angle2);
-    fill(42,100,23,75);
+    fill(42,100,23,50);
     stroke(42,100,23);
     ellipse(endX,endY,37,37);
   }
